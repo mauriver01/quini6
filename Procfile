@@ -1,1 +1,1 @@
-web: gunicorn app:app --workers 1 --bind 0.0.0.0:$PORT --preload
+web: python -c "from database import init_db; init_db()" && gunicorn app:app --workers 1 --bind 0.0.0.0:$PORT --preload
