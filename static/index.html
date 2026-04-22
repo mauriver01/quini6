@@ -588,8 +588,8 @@ function generarJugada(){
     setTimeout(()=>b.classList.add('show'), i*120+50);
   });
 
-  const calCont = nums.filter(n=>n>=hotTh).length;
-  const friCont = nums.filter(n=>n<=coldTh).length;
+  const calCont = nums.filter(n=>FREQ.find(f=>f.n===n).salidas>=hotTh).length;
+  const friCont = nums.filter(n=>FREQ.find(f=>f.n===n).salidas<=coldTh).length;
   const info = document.getElementById('gen-info');
   info.style.display='block';
   info.innerHTML=`📊 Composición: <strong>${calCont} calientes</strong>, <strong>${friCont} fríos</strong>, <strong>${6-calCont-friCont} promedio</strong>`;
